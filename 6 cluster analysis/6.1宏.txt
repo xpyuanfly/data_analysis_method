@@ -1,0 +1,88 @@
+Sub 宏1()
+'
+' 宏1 宏
+'
+' 快捷键: Ctrl+q
+'
+For i = 1 To 100:
+    m1_count = 0
+    m1_x1 = 0
+    m1_x2 = 0
+    m1_x3 = 0
+    
+    m2_count = 0
+    m2_x1 = 0
+    m2_x2 = 0
+    m2_x3 = 0
+    
+    m3_count = 0
+    m3_x1 = 0
+    m3_x2 = 0
+    m3_x3 = 0
+    
+    m4_count = 0
+    m4_x1 = 0
+    m4_x2 = 0
+    m4_x3 = 0
+    
+    For j = 2 To 48:
+        If Cells(j, 9) = "1" Then
+            m1_x1 = m1_x1 + Cells(j, 2)
+            m1_x2 = m1_x2 + Cells(j, 3)
+            m1_x3 = m1_x3 + Cells(j, 4)
+            m1_count = m1_count + 1
+        End If
+            
+        If Cells(j, 9) = "2" Then
+            m2_x1 = m2_x1 + Cells(j, 2)
+            m2_x2 = m2_x2 + Cells(j, 3)
+            m2_x3 = m2_x3 + Cells(j, 4)
+            m2_count = m2_count + 1
+        End If
+        
+        If Cells(j, 9) = "3" Then
+            m3_x1 = m3_x1 + Cells(j, 2)
+            m3_x2 = m3_x2 + Cells(j, 3)
+            m3_x3 = m3_x3 + Cells(j, 4)
+            m3_count = m3_count + 1
+        End If
+        
+        If Cells(j, 9) = "4" Then
+            m4_x1 = m4_x1 + Cells(j, 2)
+            m4_x2 = m4_x2 + Cells(j, 3)
+            m4_x3 = m4_x3 + Cells(j, 4)
+            m4_count = m4_count + 1
+        End If
+            
+    Next
+    If m1_count > 0 Then
+        Cells(8, 12) = m1_x1 / m1_count
+        Cells(8, 13) = m1_x2 / m1_count
+        Cells(8, 14) = m1_x3 / m1_count
+    End If
+    
+    If m2_count > 0 Then
+        Cells(9, 12) = m2_x1 / m2_count
+        Cells(9, 13) = m2_x2 / m2_count
+        Cells(9, 14) = m2_x3 / m2_count
+    End If
+    
+    If m3_count > 0 Then
+        Cells(10, 12) = m3_x1 / m3_count
+        Cells(10, 13) = m3_x2 / m3_count
+        Cells(10, 14) = m3_x3 / m3_count
+    End If
+    
+    If m4_count > 0 Then
+        Cells(11, 12) = m4_x1 / m4_count
+        Cells(11, 13) = m4_x2 / m4_count
+        Cells(11, 14) = m4_x3 / m4_count
+    End If
+    
+    Range("L8:N11").Select
+    Selection.Copy
+    Range("L2").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+Next
+End Sub

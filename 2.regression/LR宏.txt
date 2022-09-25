@@ -1,0 +1,14 @@
+Sub 宏1()
+'
+' 宏1 宏
+'
+' 快捷键: Ctrl+q
+'
+For i = 1 To 1000:
+    Range("Q4:V4").Select
+    Selection.Copy
+    Range("Q2").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+Next
+End Sub
