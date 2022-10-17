@@ -4,6 +4,8 @@ Sub 宏1()
 '
 ' 快捷键: Ctrl+q
 '
+'2.5 Logistic regression-书例表2.15 例子宏：
+
 For i = 1 To 1000:
     Range("Q4:V4").Select
     Selection.Copy
@@ -12,3 +14,15 @@ For i = 1 To 1000:
         :=False, Transpose:=False
 Next
 End Sub
+
+
+
+'可视化例子宏：
+
+For i = 1 To 1000:
+    Range("N4:P4").Select
+    Selection.Copy
+    Range("N2").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+Next
